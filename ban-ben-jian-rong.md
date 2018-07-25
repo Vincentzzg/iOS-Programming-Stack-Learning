@@ -10,15 +10,13 @@
 
 它控制着运行系统需要的最低系统版本。
 
-##  {#iOS版本宏}
-
 ## 系统预设宏定义 {#iOS版本宏}
 
 1、**系统版本的宏定义**
 
 随便拷贝一个宏到代码中，command + 鼠标左键寻找代码来源，可以看到usr/include/Availability.h头文件中有下面这些系统版本相关的宏定义：
 
-```
+```text
 #define __IPHONE_2_0      20000
 #define __IPHONE_2_1      20100
 #define __IPHONE_2_2      20200
@@ -64,11 +62,9 @@
 
 当前开发环境的系统SDK版本，相当于Xcode中配置的Base SDK
 
-## 
-
 ## 针对编译所用的不同SDK版本使用不同API
 
-```
+```text
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_4_3    
     #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_0
         // iOS SDK 7.0 以后版本的处理    
@@ -86,7 +82,7 @@
 
 如果要使用的新特性是个类的话，可以使用NSClassFromString来将字符串转为类，如果Runtime没有这个类存在，则返回nil
 
-```
+```text
 if(NSClassFromString(@"CLGeocoder")) {//iOS5中新类，替代MKReverseGeocoder
 做位置解析
     //CLGeocoder存在，可以使用
@@ -94,6 +90,4 @@ if(NSClassFromString(@"CLGeocoder")) {//iOS5中新类，替代MKReverseGeocoder
     //只能使用MKReverseGeocoder
 }
 ```
-
-
 

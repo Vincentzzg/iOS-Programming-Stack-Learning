@@ -1,12 +1,14 @@
 # 属性关键字
 
-## **@property**
+## 属性关键字
+
+### **@property**
 
 对象通过属性来封装数据（encapsulatesdata），属性控制着对象的数据访问
 
 属性声明包含在在一个类的接口中，likethis:
 
-```
+```text
 @interface XYZPerson : NSObject
 @property NSString *firstName;
 @property NSString *lastName;
@@ -15,7 +17,7 @@
 
 语法
 
-```
+```text
 @property (
 <
 #attributes#
@@ -34,26 +36,24 @@
 
 例子：
 
-```
+```text
 @property(copy) NSString *title;
 ```
 
 上面的语法相当于是声明了下面两个存取器方法：
 
-```
+```text
 - (NSString *)title;
 - (void)setTitle:(NSString *)newTitle;
 ```
 
-# 属性关键字
+## 属性关键字
 
 属性关键字决定数据的可访问性和存储注意事项
 
-## 使用strong和weak关键字管理所有权
+### 使用strong和weak关键字管理所有权
 
-## 
-
-### **Copy**
+#### **Copy**
 
 Copy关键字修饰的属性，会保留设置给它的对象的一份拷贝。
 
@@ -61,11 +61,11 @@ Copy关键字修饰的属性，会保留设置给它的对象的一份拷贝。
 
 Copy关键字也是强引用，因为它必须保持它自己创建的新对象。
 
-#### **NSString属性如果不使用Copy，会有什么问题？**
+**NSString属性如果不使用Copy，会有什么问题？**
 
 例如下面的XYZBadgeView类的接口部分：
 
-```
+```text
 @interface XYZBadgeView : NSView
 @property NSString *firstName;
 @property NSString *lastName;
@@ -76,7 +76,7 @@ Copy关键字也是强引用，因为它必须保持它自己创建的新对象�
 
 如果另一个对象创建一个NSString字符串来设置给badgeView的firstName属性，如下：
 
-```
+```text
 NSMutableString *nameString = [NSMutableString stringWithString:@"John"];
 self.badgeView.firstName = nameString;
 ```
@@ -85,7 +85,7 @@ self.badgeView.firstName = nameString;
 
 此时如果发生了下面的改变：
 
-```
+```text
 [nameString appendString:@"ny"];
 ```
 
@@ -93,7 +93,7 @@ self.badgeView.firstName = nameString;
 
 badgeView只应该只维护设置给firstName和lastName属性的任何字符串的一份拷贝，以便设置属性的时候捕获当时的字符串值，且不会随设置字符串的值改变而改变。添加一个Copy属性关键字就能解决：
 
-```
+```text
 @interface XYZBadgeView : NSView
 @property (copy) NSString *firstName;
 @property (copy) NSString *lastName;
@@ -102,7 +102,7 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 
 如果需要直接给一个Copy属性的实例变量赋值，例如在初始化方法中，不要忘记设置原始对象的拷贝：
 
-```
+```text
 - (id)initWithSomeOriginalString:(NSString *)aString {
     self = [super init];
     if (self) {
@@ -113,7 +113,7 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 }
 ```
 
-#### 关键字
+**关键字**
 
 @property的常用属性关键字有nonatomic、atomic、readonly、writeonly、readwrite、assign、retain、copy、strong、weak、unsafe\_unretained、nonnull、nullable、null\_resettable，看着挺多的，但是经常用的也就那几个。
 

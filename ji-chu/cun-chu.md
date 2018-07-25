@@ -1,4 +1,4 @@
-# 数据存储
+# 存储
 
 ## 数据结构
 
@@ -11,7 +11,7 @@
 `内存存储`：是临时的，运行时有效，效率高。  
 `闪存`：持久化存储，但产生I/O消耗，效率相对低。
 
-![](/assets/存储方案示意图.png)
+![](../.gitbook/assets/cun-chu-fang-an-shi-yi-tu.png)
 
 _存储方案示意图_
 
@@ -26,7 +26,7 @@ _存储方案示意图_
 
 `NSUserDefaults`被设计用来存储设备和用户的配置信息。  
 `NSUserDefaults`以字典的形式把配置信息组织起来，支持基础类型数据的存储。可以通过- \(NSDictionary \*\)dictionaryRepresentation方法取得对应的字典打印出存储的数据。  
-![](/assets/2.png)
+![](../.gitbook/assets/2.png)
 
 \[NSUserDefaults standardUserDefaults\]中的数据
 
@@ -57,7 +57,7 @@ SQLite每次写入数据都会产生IO消耗，把数据归档到相应的文件
 
 #### SQLite七层架构
 
-![](/assets/arch2.gif)
+![](../.gitbook/assets/arch2.gif)
 
 整个系统核心分为三个子系统：“前段（SQL编译器）”、“中层（虚拟机）”、“后端（存取、缓冲、操作系统抽象）”
 
@@ -78,7 +78,7 @@ CoreData使用介绍：[iOS CoreData数据库之创建详解](https://www.jiansh
 
 ### 使用基本数据对象定制的缓存方案
 
-![](/assets/5.png)  
+![](../.gitbook/assets/5.png)  
 Kache架构图
 
 参考文章：  
