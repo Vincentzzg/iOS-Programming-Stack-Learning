@@ -1,4 +1,4 @@
-# iOS中的线程同步机制
+# GCD\(Grand Central Dispatch\)学习
 
 ### Dispatch Queues
 
