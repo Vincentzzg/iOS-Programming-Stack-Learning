@@ -10,4 +10,5 @@
 * [Git](git.md)
 * [版本兼容](ban-ben-jian-rong.md)
 * [Run Loops](run-loops.md)
+* [iOS中的线程同步机制](ios-zhong-de-xian-cheng-tong-bu-ji-zhi.md)
 
